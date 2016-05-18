@@ -4,7 +4,7 @@ const Promise = require('bluebird');
 const program = require('commander');
 const chalk = require('chalk');
 const template = require('lodash.template');
-const snakeCase = require('lodash.snakecase')
+const snakeCase = require('lodash.snakecase');
 const uppercase = require('lodash.toupper');
 const lowercase = require('lodash.tolower');
 const kebab = require('lodash.kebabcase');
@@ -65,7 +65,7 @@ program
           types: options.actions
             .map(action => `${name}_${action}`)
             .map(snakeCase)
-            .map(uppercase)
+            .map(uppercase),
         })),
         Promise.resolve(template(res[2])({ selectors: options.selectors })),
       ]))
@@ -75,60 +75,60 @@ program
         write(`${name}/selectors.js`, res[2]),
       ]))
       .then(() => console.log(chalk.green(`State "${name}" successfully created!`)))
-      .catch(exit)
+      .catch(exit);
   });
 
 program
   .command('make:reducer')
   .option('--items [list]', 'Add reducer items', list, ['test'])
   .action(options => {
-    console.log(chalk.cyan(`Creating reducer...`));
+    console.log(chalk.cyan('Creating reducer...'));
     exists('reducer.js')
-      .then(() => exit(`A reducer in this directory already exists.`))
+      .then(() => exit('A reducer in this directory already exists.'))
       .catch(() => read(reducerStub, 'utf8'))
       .then(content => Promise.resolve(
         template(content)({ reducers: options.items })
       ))
       .then(content => write('reducer.js', content))
       .then(() => console.log(chalk.green('Reducer successfully created!')))
-      .catch(exit)
+      .catch(exit);
   });
 
 program
   .command('make:action')
   .option('--items [list]', 'Add action items', list, ['testAction'])
   .action(options => {
-    console.log(chalk.cyan(`Creating action...`));
+    console.log(chalk.cyan('Creating action...'));
     exists('actions.js')
-      .then(() => exit(`A action in this directory already exists.`))
+      .then(() => exit('A action in this directory already exists.'))
       .catch(() => read(actionStub, 'utf8'))
       .then(content => Promise.resolve(
         template(content)({
           actions: options.items,
           types: options.items
             .map(snakeCase)
-            .map(uppercase)
+            .map(uppercase),
         })
       ))
       .then(content => write('actions.js', content))
       .then(() => console.log(chalk.green('Action successfully created!')))
-      .catch(exit)
+      .catch(exit);
   });
 
 program
   .command('make:selector')
   .option('--items [list]', 'Add selector items', list, ['testSelector'])
   .action(options => {
-    console.log(chalk.cyan(`Creating selector...`));
+    console.log(chalk.cyan('Creating selector...'));
     exists('selectors.js')
-      .then(() => exit(`A selector in this directory already exists.`))
+      .then(() => exit('A selector in this directory already exists.'))
       .catch(() => read(selectorStub, 'utf8'))
       .then(content => Promise.resolve(
         template(content)({ selectors: options.items })
       ))
       .then(content => write('selectors.js', content))
       .then(() => console.log(chalk.green('Selector successfully created!')))
-      .catch(exit)
+      .catch(exit);
   });
 
 program
@@ -144,12 +144,14 @@ program
       .then(content => Promise.resolve(
         template(content)({
           name,
-          selector: options.selector
+          selector: options.selector,
         })
       ))
       .then(content => write(fileName, content))
-      .then(() => console.log(chalk.green(`Container component ${name} successfully created inside "${fileName}"!`)))
-      .catch(exit)
+      .then(() => console.log(chalk.green(
+        `Container component ${name} successfully created inside "${fileName}"!`
+      )))
+      .catch(exit);
   });
 
 program.parse(process.argv);
