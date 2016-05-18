@@ -1,0 +1,12 @@
+import { combineReducers } from 'redux';
+import { handleActions } from 'redux-actions';
+<% reducers.forEach(reducer => { %>
+const <%= reducer %> = handleActions({
+
+});
+<% }) %>
+export default combineReducers({
+  <% reducers.forEach(reducer => {
+    %><%= reducer %>,
+  <% }) %>
+});

@@ -1,0 +1,22 @@
+{
+  "name": "bpxl-redux-cli",
+  "version": "1.0.0",
+  "description": "CLI tool for scaffolding redux applications.",
+  "main": "bin/redux-cli.js",
+  "bin": {
+    "redux-cli": "./bin/redux-cli.js"
+  },
+  "author": "Black Pixel",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.4.0",
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "lodash.kebabcase": "^4.0.1",
+    "lodash.snakecase": "^4.0.1",
+    "lodash.template": "^4.2.5",
+    "lodash.tolower": "^4.1.1",
+    "lodash.toupper": "^4.1.1",
+    "tabtab": "^1.3.2"
+  }
+}

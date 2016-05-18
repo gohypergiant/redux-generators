@@ -1,0 +1,10 @@
+import { connect} from 'react-redux';
+
+import {
+  <%= selector %>,
+} from 'your/selector/path';
+
+const <%= name %> = connect(
+  <%= selector %>,
+  dispatch => ({ })
+);

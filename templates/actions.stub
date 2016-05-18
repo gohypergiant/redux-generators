@@ -1,0 +1,10 @@
+import { createAction } from 'redux-actions';
+
+import {
+  <% types.forEach(type => {
+    %><%= type %>,
+  <% }) %>
+} from '../action-types';
+<% actions.forEach((action, index) => { %>
+const <%= action %> = createAction(<%= types[index] %>);
+<% }) %>
