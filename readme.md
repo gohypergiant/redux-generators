@@ -47,13 +47,13 @@ Creates a new folder using `<name>` that houses three files:
 
 Creates a reducer with the filename `reducer.js`. The optional `--items` flag will pre-populate the reducer (see example above).
 
-##### `redux-cli make:reducer [options]`
+##### `redux-cli make:action [options]`
 > Available options:
 > - `--items=fooAction,barAction,bazAction`
 
 Creates a action with the filename `actions.js`. The optional `--items` flag will pre-populate the actions (see example above).
 
-##### `redux-cli make:reducer [options]`
+##### `redux-cli make:selector [options]`
 > Available options:
 > - `--items=fooSelector,barSelector,bazSelector`
 
