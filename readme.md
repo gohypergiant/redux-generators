@@ -2,6 +2,10 @@
 
 A tool for scaffolding redux applications. All commands will generate the folder / files in your current working directory.
 
+> Global options
+> `-r, --root [path]` The root path for the CLI, defaults to current working directory
+> `-p, --path [path]` The path based on root to insert the files, defaults to `./`
+
 ### Available commands
 
 ##### `redux-cli make <name> [options]`
@@ -11,35 +15,35 @@ A tool for scaffolding redux applications. All commands will generate the folder
 > - `--actions=fooAction,barAction,bazAction`
 
 Creates a new folder using `<name>` that houses three files:
-  - `reducer.js`
-  - `actions.js`
-  - `selectors.js`
+- `reducer.js`
+- `actions.js`
+- `selectors.js`
 
-  The optional flags will create default content for each of your files e.g.:
+The optional flags will create default content for each of your files e.g.:
 
-  ```javascript
-  // reducer.js
-  import { combineReducers } from 'redux';
-  import { handleActions } from 'redux-actions';
+```javascript
+// reducer.js
+import { combineReducers } from 'redux';
+import { handleActions } from 'redux-actions';
 
-  const foo = handleActions({
+const foo = handleActions({
 
-  });
+});
 
-  const bar = handleActions({
+const bar = handleActions({
 
-  });
+});
 
-  const baz = handleActions({
+const baz = handleActions({
 
-  });
+});
 
-  export default combineReducers({
-    foo,
-    bar,
-    baz,
-  });
-  ```
+export default combineReducers({
+  foo,
+  bar,
+  baz,
+});
+```
 
 ##### `redux-cli make:reducer [options]`
 > Available options:
