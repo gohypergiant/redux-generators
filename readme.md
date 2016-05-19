@@ -2,9 +2,9 @@
 
 A tool for scaffolding redux applications. All commands will generate the folder / files in your current working directory.
 
-> Global options
-> `-r, --root [path]` The root path for the CLI, defaults to current working directory
-> `-p, --path [path]` The path based on root to insert the files, defaults to `./`
+> Global options:
+> - `-r, --root [path]` The root path for the CLI, defaults to current working directory
+> - `-p, --path [path]` The path based on root to insert the files, defaults to `./`
 
 ### Available commands
 
