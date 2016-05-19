@@ -2,6 +2,11 @@
   "name": "bpxl-redux-cli",
   "version": "1.0.0",
   "description": "CLI tool for scaffolding redux applications.",
+  "homepage": "https://github.com/blackpixel/redux-cli",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/blackpixel/redux-cli.git"
+  },
   "main": "bin/redux-cli.js",
   "bin": {
     "redux-cli": "./bin/redux-cli.js"
