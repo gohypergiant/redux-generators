@@ -8,3 +8,5 @@ const <%= name %> = connect(
   <%= selector %>,
   dispatch => ({ })
 );
+
+export default <%= name %>;

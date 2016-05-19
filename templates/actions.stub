@@ -6,5 +6,5 @@ import {
   <% }) %>
 } from '../action-types';
 <% actions.forEach((action, index) => { %>
-const <%= action %> = createAction(<%= types[index] %>);
+export const <%= action %> = createAction(<%= types[index] %>);
 <% }) %>

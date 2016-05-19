@@ -1,4 +1,4 @@
 import { createSelector } from 'reselect';
 <% selectors.forEach(selector => { %>
-const <%= selector %> = createSelector();
+export const <%= selector %> = createSelector();
 <% }) %>

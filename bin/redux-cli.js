@@ -41,7 +41,7 @@ function list(val) {
 program
   .version(ver)
   .option('-r, --root [path]', 'The root path of your redux application', process.cwd())
-  .option('-p, --path [path]', 'The path you want to save the files to', __dirname);
+  .option('-p, --path [path]', 'The path you want to save the files to', './');
 
 program
   .command('make <name>')
@@ -49,10 +49,12 @@ program
   .option('--actions [list]', 'Add action items', list, ['testAction'])
   .option('--selectors [list]', 'Add selector items', list, ['testSelector'])
   .action((name, options) => {
+    const insertPath = path.join(options.parent.root, options.parent.path);
+
     console.log(chalk.cyan(`Creating state "${name}"...`));
     exists(name)
       .then(() => exit(`State "${name}" already exists.`))
-      .catch(() => mkdir(name))
+      .catch(() => mkdir(`${insertPath}${name}`))
       .then(() => Promise.all([
         read(reducerStub, 'utf8'),
         read(actionStub, 'utf8'),
@@ -70,9 +72,9 @@ program
         Promise.resolve(template(res[2])({ selectors: options.selectors })),
       ]))
       .then(res => Promise.all([
-        write(`${name}/reducer.js`, res[0]),
-        write(`${name}/actions.js`, res[1]),
-        write(`${name}/selectors.js`, res[2]),
+        write(`${insertPath}${name}/reducer.js`, res[0]),
+        write(`${insertPath}${name}/actions.js`, res[1]),
+        write(`${insertPath}${name}/selectors.js`, res[2]),
       ]))
       .then(() => console.log(chalk.green(`State "${name}" successfully created!`)))
       .catch(exit);
@@ -82,6 +84,8 @@ program
   .command('make:reducer')
   .option('--items [list]', 'Add reducer items', list, ['test'])
   .action(options => {
+    const insertPath = path.join(options.parent.root, options.parent.path);
+
     console.log(chalk.cyan('Creating reducer...'));
     exists('reducer.js')
       .then(() => exit('A reducer in this directory already exists.'))
@@ -89,7 +93,7 @@ program
       .then(content => Promise.resolve(
         template(content)({ reducers: options.items })
       ))
-      .then(content => write('reducer.js', content))
+      .then(content => write(`${insertPath}reducer.js`, content))
       .then(() => console.log(chalk.green('Reducer successfully created!')))
       .catch(exit);
   });
@@ -98,6 +102,8 @@ program
   .command('make:action')
   .option('--items [list]', 'Add action items', list, ['testAction'])
   .action(options => {
+    const insertPath = path.join(options.parent.root, options.parent.path);
+
     console.log(chalk.cyan('Creating action...'));
     exists('actions.js')
       .then(() => exit('A action in this directory already exists.'))
@@ -110,7 +116,7 @@ program
             .map(uppercase),
         })
       ))
-      .then(content => write('actions.js', content))
+      .then(content => write(`${insertPath}actions.js`, content))
       .then(() => console.log(chalk.green('Action successfully created!')))
       .catch(exit);
   });
@@ -119,6 +125,8 @@ program
   .command('make:selector')
   .option('--items [list]', 'Add selector items', list, ['testSelector'])
   .action(options => {
+    const insertPath = path.join(options.parent.root, options.parent.path);
+
     console.log(chalk.cyan('Creating selector...'));
     exists('selectors.js')
       .then(() => exit('A selector in this directory already exists.'))
@@ -126,7 +134,7 @@ program
       .then(content => Promise.resolve(
         template(content)({ selectors: options.items })
       ))
-      .then(content => write('selectors.js', content))
+      .then(content => write(`${insertPath}selectors.js`, content))
       .then(() => console.log(chalk.green('Selector successfully created!')))
       .catch(exit);
   });
@@ -135,6 +143,7 @@ program
   .command('make:container <name>')
   .option('--selector [name]', 'Selector for container component', 'testSelector')
   .action((name, options) => {
+    const insertPath = path.join(options.parent.root, options.parent.path);
     const fileName = `${lowercase(kebab(name))}.js`;
 
     console.log(chalk.cyan(`Creating container component "${name}" inside "${fileName}"...`));
@@ -147,7 +156,7 @@ program
           selector: options.selector,
         })
       ))
-      .then(content => write(fileName, content))
+      .then(content => write(`${insertPath}/${fileName}`, content))
       .then(() => console.log(chalk.green(
         `Container component ${name} successfully created inside "${fileName}"!`
       )))
