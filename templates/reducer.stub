@@ -1,12 +1,20 @@
 import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
+
+import {
+<% actionTypes.forEach(type => {
+%>  <%= type %>,
+<% })
+%>} from 'path/to/action-types';
 <% reducers.forEach(reducer => { %>
 const <%= reducer %> = handleActions({
-
-});
+<% actionTypes.forEach(action => {
+%>  [<%= action %>]: (state, { payload }) => payload,
+<% });
+%>});
 <% }) %>
 export default combineReducers({
-  <% reducers.forEach(reducer => {
-    %><%= reducer %>,
-  <% }) %>
-});
+<% reducers.forEach(reducer => {
+%>  <%= reducer %>,
+<% })
+%>});

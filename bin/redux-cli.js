@@ -60,17 +60,24 @@ program
         read(actionStub, 'utf8'),
         read(selectorStub, 'utf8'),
       ]))
-      .then(res => Promise.all([
-        Promise.resolve(template(res[0])({ reducers: options.reducers })),
-        Promise.resolve(template(res[1])({
-          actions: options.actions,
-          types: options.actions
-            .map(action => `${name}_${action}`)
-            .map(snakeCase)
-            .map(uppercase),
-        })),
-        Promise.resolve(template(res[2])({ selectors: options.selectors })),
-      ]))
+      .then(res => {
+        const actionTypes = options.actions
+          .map(action => `${name}_${action}`)
+          .map(snakeCase)
+          .map(uppercase);
+
+        return Promise.all([
+          Promise.resolve(template(res[0])({
+            actionTypes,
+            reducers: options.reducers,
+          })),
+          Promise.resolve(template(res[1])({
+            actions: options.actions,
+            types: actionTypes,
+          })),
+          Promise.resolve(template(res[2])({ selectors: options.selectors })),
+        ]);
+      })
       .then(res => Promise.all([
         write(`${insertPath}${name}/reducer.js`, res[0]),
         write(`${insertPath}${name}/actions.js`, res[1]),
