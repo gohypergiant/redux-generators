@@ -14,7 +14,7 @@ exports.mkdir = Promise.promisify(fs.mkdir);
 
 exports.info = message => console.log(chalk.cyan(message));
 
-exports.success = (message) => console.log(chalk.green(message));
+exports.success = message => console.log(chalk.green(message));
 
 exports.exit = function exit(text) {
   if (text instanceof Error) {
