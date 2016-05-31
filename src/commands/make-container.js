@@ -1,6 +1,5 @@
 const program = require('commander');
 const path = require('path');
-const chalk = require('chalk');
 const template = require('lodash.template');
 const lowercase = require('lodash.tolower');
 const kebab = require('lodash.kebabcase');
@@ -14,7 +13,7 @@ program
     const insertPath = path.join(options.parent.root, options.parent.path);
     const fileName = `${lowercase(kebab(name))}.js`;
 
-    console.log(chalk.cyan(`Creating container component "${name}" inside "${fileName}"...`));
+    utils.info(`Creating container component "${name}" inside "${fileName}"...`);
     utils.exists(fileName)
       .then(() => utils.exit(`Container component "${name}" already exists.`))
       .catch(() => utils.read(paths.containerStub, 'utf8'))
@@ -25,8 +24,8 @@ program
         })
       ))
       .then(content => utils.write(`${insertPath}/${fileName}`, content))
-      .then(() => console.log(chalk.green(
+      .then(() => utils.success(
         `Container component ${name} successfully created inside "${fileName}"!`
-      )))
+      ))
       .catch(utils.exit);
   });

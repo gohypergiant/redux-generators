@@ -12,6 +12,10 @@ exports.write = Promise.promisify(fs.writeFile);
 
 exports.mkdir = Promise.promisify(fs.mkdir);
 
+exports.info = message => console.log(chalk.cyan(message));
+
+exports.success = (message) => console.log(chalk.green(message));
+
 exports.exit = function exit(text) {
   if (text instanceof Error) {
     console.error(chalk.red(text.stack));

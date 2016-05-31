@@ -1,6 +1,5 @@
 const program = require('commander');
 const path = require('path');
-const chalk = require('chalk');
 const template = require('lodash.template');
 const snakeCase = require('lodash.snakecase');
 const uppercase = require('lodash.toupper');
@@ -15,7 +14,7 @@ program
   .action((name, options) => {
     const insertPath = path.join(options.parent.root, options.parent.path);
 
-    console.log(chalk.cyan(`Creating state "${name}"...`));
+    utils.info(`Creating state "${name}"...`);
     utils.exists(name)
       .then(() => utils.exit(`State "${name}" already exists.`))
       .catch(() => utils.mkdir(`${insertPath}${name}`))
@@ -39,7 +38,9 @@ program
             actions: options.actions,
             types: actionTypes,
           })),
-          Promise.resolve(template(res[2])({ selectors: options.selectors })),
+          Promise.resolve(template(res[2])({
+            selectors: options.selectors,
+          })),
         ]);
       })
       .then(res => Promise.all([
@@ -47,6 +48,6 @@ program
         utils.write(`${insertPath}${name}/actions.js`, res[1]),
         utils.write(`${insertPath}${name}/selectors.js`, res[2]),
       ]))
-      .then(() => console.log(chalk.green(`State "${name}" successfully created!`)))
+      .then(() => utils.success(`State "${name}" successfully created!`))
       .catch(utils.exit);
   });
