@@ -20,9 +20,9 @@ redux-cli make:container <name>
 |Command|Description|
 |---|---|
 |`redux-cli make <name>`|Creates a new folder using `<name>` that houses three files: `reducer.js`, `actions.js`, and `selectors.js` that are created based on passed in options and template files.
-|`redux-cli make:reducer`|Creates a `reducer.js` based on passed in options and template files.|
-|`redux-cli make:action`|Creates a `actions.js` based on passed in options and template files.|
-|`redux-cli make:selector`|Creates a `selectors.js` based on passed in options and template files.|
+|`redux-cli make:reducer`|Creates a reducer based on passed in options and template files.|
+|`redux-cli make:action`|Creates actions based on passed in options and template files.|
+|`redux-cli make:selector`|Creates selectors based on passed in options and template files.|
 |`redux-cli make:container <name>`|Creates a container component named `<name>` based on passed in options and template files.|
 
 ### Global Options
@@ -78,22 +78,22 @@ export default combineReducers({
 
 ### `redux-cli make:reducer [options]`
 
-Creates a reducer with the filename `reducer.js`. The optional `--items` flag will populate the reducer file template (see example above).
-
 **Options**
 
 |Option|Description|
 |---|---|
-|`--items`|A comma separated list of initial reducer items to add into your `reducer.js` file|
+|`--name`|The filename for the reducer file|
+|`--items`|A comma separated list of initial reducer items to add into your reducer file|
+|`--actions`|A comma separated list of initial action types to add into your reducer file|
+
 
 ### `redux-cli make:action [options]`
 
-Creates actions with the filename `actions.js`. The optional `--items` flag will populate the actions file template.
-
 **Options**
 
 |Option|Description|
 |---|---|
+|`--name`|The filename for the actions file|
 |`--items`|A comma separated list of initial actions to add into your `actions.js` file|
 
 **Example**
@@ -113,12 +113,11 @@ export const bazAction = createAction(BAZ_ACTION);
 
 ### `redux-cli make:selector [options]`
 
-Creates a selector with the filename `selectors.js`. The optional `--items` flag will populate the selector file template.
-
 **Options**
 
 |Option|Description|
 |---|---|
+|`--name`|The filename for the selectors file|
 |`--items`|A list of initial selectors to add into your `selectors.js` file|
 
 **Example**
