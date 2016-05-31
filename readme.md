@@ -1,41 +1,72 @@
 # BPXL Redux CLI
 
-A tool for scaffolding redux applications. All commands will generate the folder / files in your current working directory.
+A tool for scaffolding redux applications. This tool is opinionated towards the way we like to build our redux applications. We assume you are using the following packages:
 
-> Global options:
-> - `-r, --root [path]` The root path for the CLI, defaults to current working directory
-> - `-p, --path [path]` The path based on root to insert the files, defaults to `./`
+[reselect](https://github.com/reactjs/reselect)
+[redux-actions](https://github.com/acdlite/redux-actions)
+[react-redux](https://github.com/reactjs/react-redux)
 
-### Available commands
+### Quickstart
+```bash
+redux-cli make <name>
+redux-cli make:reducer
+redux-cli make:action
+redux-cli make:selector
+redux-cli make:container <name>
+```
+
+### Available Commands
+
+|Command|Description|
+|---|---|
+|`redux-cli make <name>`|Creates a new folder using `<name>` that houses three files: `reducer.js`, `actions.js`, and `selectors.js` that are created based on passed in options and template files.
+|`redux-cli make:reducer`|Creates a `reducer.js` based on passed in options and template files.|
+|`redux-cli make:action`|Creates a `actions.js` based on passed in options and template files.|
+|`redux-cli make:selector`|Creates a `selectors.js` based on passed in options and template files.|
+|`redux-cli make:container <name>`|Creates a container component named `<name>` based on passed in options and template files.|
+
+### Global Options
+
+|Option|Description|
+|---|---|
+|`-r, --root [path]`|The root path for the CLI, defaults to current working directory|
+|`-p, --path [path]`|The path based on root to insert the files, defaults to `./`|
 
 ##### `redux-cli make <name> [options]`
-> Available options:
-> - `--reducers=foo,bar,baz`
-> - `--selectors=fooSelector,barSelector,bazSelector`
-> - `--actions=fooAction,barAction,bazAction`
 
 Creates a new folder using `<name>` that houses three files:
 - `reducer.js`
 - `actions.js`
 - `selectors.js`
 
-The optional flags will create default content for each of your files e.g.:
+**Options**
 
+|Option|Description|Example|
+|---|---|---|
+|`--reducers`|A list of initial reducer items to add into your `reducer.js` file|`--reducers=foo,bar,baz`|
+|`--selectors`|A list of initial selectors to add into your `selectors.js` file|`--selectors=fooSelector,barSelector,bazSelector`|
+|`--actions`|A list of initial actions to add into your `actions.js` file|`--actions=fooAction,barAction,bazAction`|
+
+**Example**
 ```javascript
-// reducer.js
+// inside reducer.js
 import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
 
-const foo = handleActions({
+import {
+  TESTER_TEST_ACTION,
+} from 'path/to/action-types';
 
+const foo = handleActions({
+  [TESTER_TEST_ACTION]: (state, { payload }) => payload,
 });
 
 const bar = handleActions({
-
+  [TESTER_TEST_ACTION]: (state, { payload }) => payload,
 });
 
 const baz = handleActions({
-
+  [TESTER_TEST_ACTION]: (state, { payload }) => payload,
 });
 
 export default combineReducers({
@@ -46,25 +77,80 @@ export default combineReducers({
 ```
 
 ##### `redux-cli make:reducer [options]`
-> Available options:
-> - `--items=foo,bar,baz`
 
-Creates a reducer with the filename `reducer.js`. The optional `--items` flag will pre-populate the reducer (see example above).
+Creates a reducer with the filename `reducer.js`. The optional `--items` flag will populate the reducer file template (see example above).
+
+**Options**
+
+|Option|Description|Example|
+|---|---|---|
+|`--items`|A list of initial reducer items to add into your `reducer.js` file|`--items=foo,bar,baz`|
 
 ##### `redux-cli make:action [options]`
-> Available options:
-> - `--items=fooAction,barAction,bazAction`
 
-Creates a action with the filename `actions.js`. The optional `--items` flag will pre-populate the actions (see example above).
+Creates actions with the filename `actions.js`. The optional `--items` flag will populate the actions file template.
+
+**Options**
+
+|Option|Description|Example|
+|---|---|---|
+|`--items`|A list of initial actions to add into your `actions.js` file|`--items=fooAction,barAction,bazAction`|
+
+**Example**
+```javascript
+import { createAction } from 'redux-actions';
+
+import {
+  FOO_ACTION,
+  BAR_ACTION,
+  BAZ_ACTION,
+} from 'path/to/action-types';
+
+export const fooAction = createAction(FOO_ACTION);
+export const barAction = createAction(BAR_ACTION);
+export const bazAction = createAction(BAZ_ACTION);
+```
 
 ##### `redux-cli make:selector [options]`
-> Available options:
-> - `--items=fooSelector,barSelector,bazSelector`
 
-Creates a selector with the filename `selectors.js`. The optional `--items` flag will pre-populate the selector (see example above).
+Creates a selector with the filename `selectors.js`. The optional `--items` flag will populate the selector file template.
+
+**Options**
+
+|Option|Description|Example|
+|---|---|---|
+|`--items`|A list of initial selectors to add into your `selectors.js` file|`--items=fooSelector,barSelector,bazSelector`|
+
+**Example**
+```javascript
+import { createSelector } from 'reselect';
+
+export const fooSelector = createSelector();
+export const barSelector = createSelector();
+export const bazSelector = createSelector();
+```
 
 ##### `redux-cli make:container <name>`
-> Available options:
-> - `--selector=fooSelector`
 
 Creates a container component exported with the passed in `<name>`. The file name is derived from kebab and lowercasing the `<name>`.
+
+**Options**
+|Option|Description|Example|
+|---|---|---|
+|`--selector [name]`|The selector you want to use for your container component|`--selector=fooSelector|
+
+**Example**
+```javascript
+import { connect} from 'react-redux';
+
+import {
+  fooSelector,
+} from 'path/to/selector';
+
+const FooContainer = connect(
+  fooSelector,
+  dispatch => ({ })
+);
+
+export default FooContainer;
+```
