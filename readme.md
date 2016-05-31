@@ -2,9 +2,9 @@
 
 A tool for scaffolding redux applications. This tool is opinionated towards the way we like to build our redux applications. We assume you are using the following packages:
 
-[reselect](https://github.com/reactjs/reselect)
-[redux-actions](https://github.com/acdlite/redux-actions)
-[react-redux](https://github.com/reactjs/react-redux)
+- [reselect](https://github.com/reactjs/reselect)
+- [redux-actions](https://github.com/acdlite/redux-actions)
+- [react-redux](https://github.com/reactjs/react-redux)
 
 ### Quickstart
 ```bash
@@ -32,7 +32,7 @@ redux-cli make:container <name>
 |`-r, --root [path]`|The root path for the CLI, defaults to current working directory|
 |`-p, --path [path]`|The path based on root to insert the files, defaults to `./`|
 
-##### `redux-cli make <name> [options]`
+### `redux-cli make <name> [options]`
 
 Creates a new folder using `<name>` that houses three files:
 - `reducer.js`
@@ -41,11 +41,12 @@ Creates a new folder using `<name>` that houses three files:
 
 **Options**
 
-|Option|Description|Example|
-|---|---|---|
-|`--reducers`|A list of initial reducer items to add into your `reducer.js` file|`--reducers=foo,bar,baz`|
-|`--selectors`|A list of initial selectors to add into your `selectors.js` file|`--selectors=fooSelector,barSelector,bazSelector`|
-|`--actions`|A list of initial actions to add into your `actions.js` file|`--actions=fooAction,barAction,bazAction`|
+|Option|Description|
+|---|---|
+|`<name>`|The name of the folder to house our state files|
+|`--reducers`|A comma separated list of initial reducer items to add into your `reducer.js` file|
+|`--selectors`|A comma separated list of initial selectors to add into your `selectors.js` file|
+|`--actions`|A comma separated list of initial actions to add into your `actions.js` file|
 
 **Example**
 ```javascript
@@ -76,25 +77,25 @@ export default combineReducers({
 });
 ```
 
-##### `redux-cli make:reducer [options]`
+### `redux-cli make:reducer [options]`
 
 Creates a reducer with the filename `reducer.js`. The optional `--items` flag will populate the reducer file template (see example above).
 
 **Options**
 
-|Option|Description|Example|
-|---|---|---|
-|`--items`|A list of initial reducer items to add into your `reducer.js` file|`--items=foo,bar,baz`|
+|Option|Description|
+|---|---|
+|`--items`|A comma separated list of initial reducer items to add into your `reducer.js` file|
 
-##### `redux-cli make:action [options]`
+### `redux-cli make:action [options]`
 
 Creates actions with the filename `actions.js`. The optional `--items` flag will populate the actions file template.
 
 **Options**
 
-|Option|Description|Example|
-|---|---|---|
-|`--items`|A list of initial actions to add into your `actions.js` file|`--items=fooAction,barAction,bazAction`|
+|Option|Description|
+|---|---|
+|`--items`|A comma separated list of initial actions to add into your `actions.js` file|
 
 **Example**
 ```javascript
@@ -111,15 +112,15 @@ export const barAction = createAction(BAR_ACTION);
 export const bazAction = createAction(BAZ_ACTION);
 ```
 
-##### `redux-cli make:selector [options]`
+### `redux-cli make:selector [options]`
 
 Creates a selector with the filename `selectors.js`. The optional `--items` flag will populate the selector file template.
 
 **Options**
 
-|Option|Description|Example|
-|---|---|---|
-|`--items`|A list of initial selectors to add into your `selectors.js` file|`--items=fooSelector,barSelector,bazSelector`|
+|Option|Description|
+|---|---|
+|`--items`|A list of initial selectors to add into your `selectors.js` file|
 
 **Example**
 ```javascript
@@ -130,14 +131,15 @@ export const barSelector = createSelector();
 export const bazSelector = createSelector();
 ```
 
-##### `redux-cli make:container <name>`
+### `redux-cli make:container <name>`
 
 Creates a container component exported with the passed in `<name>`. The file name is derived from kebab and lowercasing the `<name>`.
 
 **Options**
-|Option|Description|Example|
-|---|---|---|
-|`--selector [name]`|The selector you want to use for your container component|`--selector=fooSelector|
+|Option|Description|
+|---|---|
+|`<name>`|The name of the container component|
+|`--selector [name]`|The selector you want to use for your container component|
 
 **Example**
 ```javascript
