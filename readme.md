@@ -43,7 +43,6 @@ Creates a new folder using `<name>` that houses three files:
 
 |Option|Description|
 |---|---|
-|`<name>`|The name of the folder to house our state files|
 |`--reducers`|A comma separated list of initial reducer items to add into your `reducer.js` file|
 |`--selectors`|A comma separated list of initial selectors to add into your `selectors.js` file|
 |`--actions`|A comma separated list of initial actions to add into your `actions.js` file|
@@ -136,9 +135,9 @@ export const bazSelector = createSelector();
 Creates a container component exported with the passed in `<name>`. The file name is derived from kebab and lowercasing the `<name>`.
 
 **Options**
+
 |Option|Description|
 |---|---|
-|`<name>`|The name of the container component|
 |`--selector [name]`|The selector you want to use for your container component|
 
 **Example**
