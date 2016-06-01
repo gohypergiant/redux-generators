@@ -42,7 +42,7 @@ exports.assert = function assert(condition, msg) {
       condition();
       return;
     } catch (e) {
-      exports.exit(e);
+      exports.exit(msg || e);
     }
   }
 
