@@ -8,9 +8,19 @@ program
   .command('make:selector')
   .option('--items [list]', 'Add selector items', utils.list, ['testSelector'])
   .action(options => {
-    const insertPath = path.join(options.parent.root, options.parent.path);
+    const insertPath = path.join(
+      paths.baseDir,
+      options.parent.root,
+      options.parent.path
+    );
+
+    utils.assert(
+      utils.existsSync(insertPath),
+      '"make:selector" insert path does not exist.'
+    );
 
     utils.info('Creating selector...');
+
     utils.exists('selectors.js')
       .then(() => utils.exit('A selector in this directory already exists.'))
       .catch(() => utils.read(paths.selectorStub, 'utf8'))

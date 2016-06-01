@@ -8,9 +8,19 @@ program
   .command('make:reducer')
   .option('--items [list]', 'Add reducer items', utils.list, ['test'])
   .action(options => {
-    const insertPath = path.join(options.parent.root, options.parent.path);
+    const insertPath = path.join(
+      paths.baseDir,
+      options.parent.root,
+      options.parent.path
+    );
+
+    utils.assert(
+      utils.existsSync(insertPath),
+      '"make:reducer" insert path does not exist.'
+    );
 
     utils.info('Creating reducer...');
+
     utils.exists('reducer.js')
       .then(() => utils.exit('A reducer in this directory already exists.'))
       .catch(() => utils.read(paths.reducerStub, 'utf8'))

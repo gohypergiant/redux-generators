@@ -12,10 +12,20 @@ program
   .option('--actions [list]', 'Add action items', utils.list, ['testAction'])
   .option('--selectors [list]', 'Add selector items', utils.list, ['testSelector'])
   .action((name, options) => {
-    const insertPath = path.join(options.parent.root, options.parent.path);
+    const insertPath = path.join(
+      paths.baseDir,
+      options.parent.root,
+      options.parent.path
+    );
+
+    utils.assert(
+      utils.existsSync(insertPath),
+      '"make" insert path does not exist.'
+    );
 
     utils.info(`Creating state "${name}"...`);
-    utils.exists(name)
+
+    utils.exists(`${insertPath}${name}`)
       .then(() => utils.exit(`State "${name}" already exists.`))
       .catch(() => utils.mkdir(`${insertPath}${name}`))
       .then(() => Promise.all([

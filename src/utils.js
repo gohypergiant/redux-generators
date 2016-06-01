@@ -1,4 +1,5 @@
 const Promise = require('bluebird');
+const isFunction = require('lodash.isfunction');
 const chalk = require('chalk');
 const fs = require('fs');
 
@@ -24,4 +25,30 @@ exports.exit = function exit(text) {
   }
 
   return process.exit(1);
+};
+
+exports.existsSync = function existsSync(path) {
+  try {
+    fs.statSync(path);
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
+exports.assert = function assert(condition, msg) {
+  if (isFunction(condition)) {
+    try {
+      condition();
+      return;
+    } catch (e) {
+      exports.exit(e);
+    }
+  }
+
+  if (condition) {
+    return;
+  }
+
+  exports.exit(msg || 'Assertion failed.');
 };

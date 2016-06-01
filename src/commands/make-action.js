@@ -10,9 +10,19 @@ program
   .command('make:action')
   .option('--items [list]', 'Add action items', utils.list, ['testAction'])
   .action(options => {
-    const insertPath = path.join(options.parent.root, options.parent.path);
+    const insertPath = path.join(
+      paths.baseDir,
+      options.parent.root,
+      options.parent.path
+    );
+
+    utils.assert(
+      utils.existsSync(insertPath),
+      '"make:action" insert path does not exist.'
+    );
 
     utils.info('Creating action...');
+
     utils.exists('actions.js')
       .then(() => utils.exit('A action in this directory already exists.'))
       .catch(() => utils.read(paths.actionStub, 'utf8'))
