@@ -24,7 +24,7 @@ program
 
     utils.info(`Creating container component "${name}" inside "${fileName}"...`);
 
-    utils.exists(`${insertPath}${fileName}.js`)
+    utils.exists(`${insertPath}${fileName}`)
       .then(() => utils.exit(`Container component "${name}" already exists.`))
       .catch(() => utils.read(paths.containerStub, 'utf8'))
       .then(content => Promise.resolve(
@@ -35,7 +35,7 @@ program
       ))
       .then(content => utils.write(`${insertPath}/${fileName}`, content))
       .then(() => utils.success(
-        `Container component ${name} successfully created! ==> "${insertPath}${fileName}.js"`
+        `Container component ${name} successfully created! ==> "${insertPath}${fileName}"`
       ))
       .catch(utils.exit);
   });
