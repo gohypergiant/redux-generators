@@ -14,7 +14,7 @@ program
   .option('--actions [list]', 'Add action types', utils.list, ['testAction'])
   .option('--name [name]', 'Set filename for reducer file', 'reducer')
   .action(options => {
-    const fileName = lowercase(kebab(options.name));
+    const fileName = `${lowercase(kebab(options.name))}.js`;
     const insertPath = path.join(
       paths.baseDir,
       options.parent.root,
@@ -31,9 +31,9 @@ program
 
     utils.info('Creating reducer...');
 
-    utils.exists(`${insertPath}${fileName}.js`)
+    utils.exists(`${insertPath}${fileName}`)
       .then(() => utils.exit(
-        `Reducer file with filename "${fileName}.js" already exists.`
+        `Reducer file with filename "${fileName}" already exists.`
       ))
       .catch(() => utils.read(paths.reducerStub, 'utf8'))
       .then(content => Promise.resolve(
@@ -42,9 +42,9 @@ program
           reducers: options.items,
         })
       ))
-      .then(content => utils.write(`${insertPath}${fileName}.js`, content))
+      .then(content => utils.write(`${insertPath}${fileName}`, content))
       .then(() => utils.success(
-        `Reducer file successfully created! ==> "${insertPath}${fileName}.js"`
+        `Reducer file successfully created! ==> "${insertPath}${fileName}"`
       ))
       .catch(utils.exit);
   });
