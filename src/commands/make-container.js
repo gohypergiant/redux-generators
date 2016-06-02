@@ -13,7 +13,7 @@ program
     const insertPath = path.join(options.parent.root, options.parent.path);
     const fileName = `${lowercase(kebab(name))}.js`;
 
-    utils.info(`Creating container component "${name}" inside "${fileName}"...`);
+    utils.info(`Creating container component "${name}"...`);
     utils.exists(fileName)
       .then(() => utils.exit(`Container component "${name}" already exists.`))
       .catch(() => utils.read(paths.containerStub, 'utf8'))
@@ -25,7 +25,7 @@ program
       ))
       .then(content => utils.write(`${insertPath}/${fileName}`, content))
       .then(() => utils.success(
-        `Container component ${name} successfully created inside "${fileName}"!`
+        `Container component ${name} successfully created! ==> "${insertPath}${fileName}.js"`
       ))
       .catch(utils.exit);
   });
