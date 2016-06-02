@@ -10,11 +10,21 @@ program
   .command('make:container <name>')
   .option('--selector [name]', 'Selector for container component', 'testSelector')
   .action((name, options) => {
-    const insertPath = path.join(options.parent.root, options.parent.path);
     const fileName = `${lowercase(kebab(name))}.js`;
+    const insertPath = path.join(
+      paths.baseDir,
+      options.parent.root,
+      options.parent.path
+    );
 
-    utils.info(`Creating container component "${name}"...`);
-    utils.exists(fileName)
+    utils.assert(
+      utils.existsSync(insertPath),
+      '"make:container" insert path does not exist.'
+    );
+
+    utils.info(`Creating container component "${name}" inside "${fileName}"...`);
+
+    utils.exists(`${insertPath}${fileName}`)
       .then(() => utils.exit(`Container component "${name}" already exists.`))
       .catch(() => utils.read(paths.containerStub, 'utf8'))
       .then(content => Promise.resolve(
@@ -25,7 +35,7 @@ program
       ))
       .then(content => utils.write(`${insertPath}/${fileName}`, content))
       .then(() => utils.success(
-        `Container component ${name} successfully created! ==> "${insertPath}${fileName}.js"`
+        `Container component ${name} successfully created! ==> "${insertPath}${fileName}"`
       ))
       .catch(utils.exit);
   });

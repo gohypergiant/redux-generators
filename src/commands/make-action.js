@@ -13,13 +13,23 @@ program
   .option('--items [list]', 'Add action items', utils.list, ['testAction'])
   .option('--name [name]', 'Set filename for actions file', 'actions')
   .action(options => {
-    const insertPath = path.join(options.parent.root, options.parent.path);
-    const fileName = lowercase(kebab(options.name));
+    const fileName = `${lowercase(kebab(options.name))}.js`;
+    const insertPath = path.join(
+      paths.baseDir,
+      options.parent.root,
+      options.parent.path
+    );
+
+    utils.assert(
+      utils.existsSync(insertPath),
+      '"make:action" insert path does not exist.'
+    );
 
     utils.info('Creating action...');
-    utils.exists(`${fileName}.js`)
+
+    utils.exists(`${insertPath}${fileName}`)
       .then(() => utils.exit(
-        `Actions file with filename "${fileName}.js" already exists.`
+        `Actions file with filename "${fileName}" already exists.`
       ))
       .catch(() => utils.read(paths.actionStub, 'utf8'))
       .then(content => Promise.resolve(
@@ -30,9 +40,9 @@ program
             .map(uppercase),
         })
       ))
-      .then(content => utils.write(`${insertPath}${fileName}.js`, content))
+      .then(content => utils.write(`${insertPath}${fileName}`, content))
       .then(() => utils.success(
-        `Actions file successfully created! ==> "${insertPath}${fileName}.js"`
+        `Actions file successfully created! ==> "${insertPath}${fileName}"`
       ))
       .catch(utils.exit);
   });

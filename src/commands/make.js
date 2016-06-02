@@ -14,11 +14,21 @@ program
   .option('--actions [list]', 'Add action items', utils.list, ['testAction'])
   .option('--selectors [list]', 'Add selector items', utils.list, ['testSelector'])
   .action((name, options) => {
-    const insertPath = path.join(options.parent.root, options.parent.path);
     const folderName = lowercase(kebab(name));
+    const insertPath = path.join(
+      paths.baseDir,
+      options.parent.root,
+      options.parent.path
+    );
+
+    utils.assert(
+      utils.existsSync(insertPath),
+      '"make" insert path does not exist.'
+    );
 
     utils.info(`Creating state "${name}"...`);
-    utils.exists(folderName)
+
+    utils.exists(`${insertPath}${folderName}`)
       .then(() => utils.exit(
         `State folder with name "${folderName}" already exists.`
       ))

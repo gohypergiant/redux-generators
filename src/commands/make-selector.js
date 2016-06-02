@@ -11,13 +11,23 @@ program
   .option('--items [list]', 'Add selector items', utils.list, ['testSelector'])
   .option('--name [name]', 'Set filename for selectors file', 'selectors')
   .action(options => {
-    const insertPath = path.join(options.parent.root, options.parent.path);
-    const fileName = lowercase(kebab(options.name));
+    const fileName = `${lowercase(kebab(options.name))}.js`;
+    const insertPath = path.join(
+      paths.baseDir,
+      options.parent.root,
+      options.parent.path
+    );
+
+    utils.assert(
+      utils.existsSync(insertPath),
+      '"make:selector" insert path does not exist.'
+    );
 
     utils.info('Creating selector...');
-    utils.exists(`${fileName}.js`)
+
+    utils.exists(`${insertPath}${fileName}`)
       .then(() => utils.exit(
-        `Selectors file with filename "${fileName}.js" already exists.`
+        `Selectors file with filename "${fileName}" already exists.`
       ))
       .catch(() => utils.read(paths.selectorStub, 'utf8'))
       .then(content => Promise.resolve(
@@ -25,9 +35,9 @@ program
           selectors: options.items,
         })
       ))
-      .then(content => utils.write(`${insertPath}${fileName}.js`, content))
+      .then(content => utils.write(`${insertPath}${fileName}`, content))
       .then(() => utils.success(
-        `Selectors file successfully created! ==> "${insertPath}${fileName}.js"`
+        `Selectors file successfully created! ==> "${insertPath}${fileName}"`
       ))
       .catch(utils.exit);
   });
