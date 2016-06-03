@@ -23,6 +23,7 @@
     "lodash.template": "^4.2.5",
     "lodash.tolower": "^4.1.1",
     "lodash.toupper": "^4.1.1",
+    "lodash.trimend": "^4.4.0",
     "rcfile": "^1.0.3"
   },
   "devDependencies": {
