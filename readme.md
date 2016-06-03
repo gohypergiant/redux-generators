@@ -8,9 +8,9 @@ A tool for scaffolding redux applications. This tool is opinionated towards the 
 
 ### Quickstart
 
-![Redux CLI Usage Gif](http://bpxl.io/1abjo/5pRISyjt)
+![Redux CLI Usage Gif](http://i.imgur.com/KZ4p4qg.gif)
 
-```bash
+```bashgit
 redux-cli make <name>
 redux-cli make:reducer
 redux-cli make:action
