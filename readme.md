@@ -57,7 +57,7 @@ You can also add a `.reduxclirc` file to your project root to set config values 
 
 ### Custom templates
 
-By default `redux-cli` will generate files for you with some great conventions and standards in mind. However, if you would like to have a set of your own templates, you can do so by creating a folder in your root directory to house your custom templates. This folder path will need to be set inside of a `.reduxclirc` file and all four template files will need to be present.
+By default `redux-cli` will generate files for you with some great conventions and standards in mind. However, if you would like to have a set of your own templates, you can do so by creating a folder in your root directory to house your custom templates. This folder path will need to be set inside of a `.reduxclirc` file and all four template files will need to be present. All template files are rendered using [lodash's `template`](https://lodash.com/docs#template) method.
 
 `reducerTemplate` gets passed the following data:
 
