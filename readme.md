@@ -7,7 +7,10 @@ A tool for scaffolding redux applications. This tool is opinionated towards the 
 - [react-redux](https://github.com/reactjs/react-redux)
 
 ### Quickstart
-```bash
+
+![Redux CLI Usage Gif](http://i.imgur.com/KZ4p4qg.gif)
+
+```bashgit
 redux-cli make <name>
 redux-cli make:reducer
 redux-cli make:action
@@ -31,6 +34,57 @@ redux-cli make:container <name>
 |---|---|
 |`-r, --root [path]`|The root path for the CLI, defaults to current working directory|
 |`-p, --path [path]`|The path based on root to insert the files, defaults to `./`|
+
+You can also add a `.reduxclirc` file to your project root to set config values used in `redux-cli`. Here is an example `.reduxclirc` file with all available options:
+
+```json
+{
+  "root": "./",
+  "templates": "./templates",
+  "reducerTemplate": "reducer.stub",
+  "actionTemplate": "actions.stub",
+  "selectorTemplate": "selectors.stub",
+  "containerTemplate": "container.stub",
+}
+```
+
+- `root` is the same as the global option
+- `templates` is the path to your own custom templates directory
+- `reducerTemplate` is the filename of your reducer template
+- `actionTemplate` is the filename of your action template
+- `selectorTemplate` is the filename of your selector template
+- `containerTemplate` is the filename of your container template
+
+### Custom templates
+
+By default `redux-cli` will generate files for you with some great conventions and standards in mind. However, if you would like to have a set of your own templates, you can do so by creating a folder in your root directory to house your custom templates. This folder path will need to be set inside of a `.reduxclirc` file and all four template files will need to be present. All template files are rendered using [lodash's `template`](https://lodash.com/docs#template) method.
+
+`reducerTemplate` gets passed the following data:
+
+|Key|Type|Description|
+|---|---|---|
+|reducers|Array|A list of reducers that get combined together via `combineReducers`.|
+|actionTypes|Array|A list of action types to pass to the reducers `handleActions` method.|
+
+`actionTemplate` gets passed the following data:
+
+|Key|Type|Description|
+|---|---|---|
+|actions|Array|A list of action creators that are created via `createAction`.|
+|types|Array|A list of action types (based on actions) to pass to action creators.|
+
+`selectorTemplate` gets passed the following data:
+
+|Key|Type|Description|
+|---|---|---|
+|selectors|Array|A list of selectors that are created via `createSelector`.|
+
+`containerTemplate` gets passed the following data:
+
+|Key|Type|Description|
+|---|---|---|
+|name|String|The exported name of the container component.|
+|selector|String|A selector to be passed as the first argument to the `connect` method.|
 
 ### `redux-cli make <name> [options]`
 
