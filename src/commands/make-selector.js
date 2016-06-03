@@ -8,8 +8,8 @@ const paths = require('../paths');
 
 program
   .command('make:selector')
-  .option('--items [list]', 'Add selector items', utils.list, ['testSelector'])
-  .option('--name [name]', 'Set filename for selectors file', 'selectors')
+  .option('--items <list>', 'Add selector items', utils.list, ['testSelector'])
+  .option('--name <name>', 'Set filename for selectors file', 'selectors')
   .action(options => {
     const fileName = `${lowercase(kebab(options.name))}.js`;
     const insertPath = path.join(

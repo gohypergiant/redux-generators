@@ -10,9 +10,9 @@ const paths = require('../paths');
 
 program
   .command('make:reducer')
-  .option('--items [list]', 'Add reducer items', utils.list, ['test'])
-  .option('--actions [list]', 'Add action types', utils.list, ['testAction'])
-  .option('--name [name]', 'Set filename for reducer file', 'reducer')
+  .option('--items <list>', 'Add reducer items', utils.list, ['test'])
+  .option('--actions <list>', 'Add action types', utils.list, ['testAction'])
+  .option('--name <name>', 'Set filename for reducer file', 'reducer')
   .action(options => {
     const fileName = `${lowercase(kebab(options.name))}.js`;
     const insertPath = path.join(

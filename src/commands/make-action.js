@@ -10,8 +10,8 @@ const paths = require('../paths');
 
 program
   .command('make:action')
-  .option('--items [list]', 'Add action items', utils.list, ['testAction'])
-  .option('--name [name]', 'Set filename for actions file', 'actions')
+  .option('--items <list>', 'Add action items', utils.list, ['testAction'])
+  .option('--name <name>', 'Set filename for actions file', 'actions')
   .action(options => {
     const fileName = `${lowercase(kebab(options.name))}.js`;
     const insertPath = path.join(

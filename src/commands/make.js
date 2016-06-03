@@ -10,9 +10,9 @@ const paths = require('../paths');
 
 program
   .command('make <name>')
-  .option('--reducers [list]', 'Add reducer items', utils.list, ['test'])
-  .option('--actions [list]', 'Add action items', utils.list, ['testAction'])
-  .option('--selectors [list]', 'Add selector items', utils.list, ['testSelector'])
+  .option('--reducers <list>', 'Add reducer items', utils.list, ['test'])
+  .option('--actions <list>', 'Add action items', utils.list, ['testAction'])
+  .option('--selectors <list>', 'Add selector items', utils.list, ['testSelector'])
   .action((name, options) => {
     const folderName = lowercase(kebab(name));
     const insertPath = path.join(
