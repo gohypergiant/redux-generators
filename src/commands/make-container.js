@@ -8,7 +8,7 @@ const paths = require('../paths');
 
 program
   .command('make:container <name>')
-  .option('--selector [name]', 'Selector for container component', 'testSelector')
+  .option('--selector <name>', 'Selector for container component', 'testSelector')
   .action((name, options) => {
     const fileName = `${lowercase(kebab(name))}.js`;
     const insertPath = path.join(

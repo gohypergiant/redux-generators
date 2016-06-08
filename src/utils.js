@@ -2,8 +2,9 @@ const Promise = require('bluebird');
 const isFunction = require('lodash.isfunction');
 const chalk = require('chalk');
 const fs = require('fs');
+const trimend = require('lodash.trimend');
 
-exports.list = val => val.split(',');
+exports.list = val => trimend(val, ',').split(',');
 
 exports.exists = Promise.promisify(fs.stat);
 
@@ -19,7 +20,7 @@ exports.success = message => console.log(chalk.green(message));
 
 exports.exit = function exit(text) {
   if (text instanceof Error) {
-    console.error(chalk.red(text.stack));
+    console.error(chalk.red(text.toString()));
   } else {
     console.error(chalk.red(text));
   }
