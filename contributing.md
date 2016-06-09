@@ -4,7 +4,7 @@ We welcome contributions from the community and are pleased to have them. Please
 
 ## Logging Issues
 
-All issues should be created using the [new issue form](https://github.com/blackpixel/redux-cli/issues/new). Clearly describe the issue including steps to reproduce if there are any.
+All issues should be created using the [new issue form](https://github.com/bpxl-labs/bpxl-redux-cli/issues/new). Clearly describe the issue including steps to reproduce if there are any.
 
 ## Making changes
 
@@ -12,4 +12,4 @@ All issues should be created using the [new issue form](https://github.com/black
 
 - Fork the repository on GitHub
 - Add in your changes
-- [Pull requests](http://help.github.com/send-pull-requests/) should be made to the [master branch](https://github.com/blackpixel/redux-cli/tree/master).
+- [Pull requests](http://help.github.com/send-pull-requests/) should be made to the [master branch](https://github.com/bpxl-labs/bpxl-redux-cli/tree/master).
