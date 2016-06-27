@@ -7,12 +7,27 @@
     "type": "git",
     "url": "git://github.com/bpxl-labs/bpxl-redux-cli.git"
   },
+  "bugs": {
+    "url": "https://github.com/bpxl-labs/bpxl-redux-cli/issues"
+  },
   "main": "bin/redux-cli.js",
   "bin": {
     "redux-cli": "./bin/redux-cli.js"
   },
+  "engine": {
+    "node": ">=4.0.0"
+  },
   "author": "Black Pixel",
   "license": "MIT",
+  "keywords": [
+    "redux",
+    "react",
+    "cli",
+    "scaffold",
+    "generator",
+    "tool",
+    "automate"
+  ],
   "dependencies": {
     "bluebird": "^3.4.0",
     "chalk": "^1.1.3",
