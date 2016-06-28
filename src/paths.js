@@ -2,7 +2,7 @@ const path = require('path');
 const rcfile = require('rcfile');
 const utils = require('./utils');
 const defaultConfig = require('./config');
-const rcConfig = rcfile('reduxclirc', { configFileName: '.reduxclirc' });
+const rcConfig = rcfile('rgrc', { configFileName: '.rgrc' });
 const config = Object.assign({}, defaultConfig, rcConfig);
 
 const baseDir = process.cwd();

@@ -1,18 +1,19 @@
 {
-  "name": "bpxl-redux-cli",
+  "name": "redux-generators",
   "version": "1.0.0",
-  "description": "CLI tool for scaffolding redux applications.",
-  "homepage": "https://github.com/bpxl-labs/bpxl-redux-cli",
+  "description": "A CLI tool for quickly scaffolding scalable Redux applications.",
+  "homepage": "https://github.com/bpxl-labs/redux-generators",
   "repository": {
     "type": "git",
-    "url": "git://github.com/bpxl-labs/bpxl-redux-cli.git"
+    "url": "git://github.com/bpxl-labs/redux-generators.git"
   },
   "bugs": {
-    "url": "https://github.com/bpxl-labs/bpxl-redux-cli/issues"
+    "url": "https://github.com/bpxl-labs/redux-generators/issues"
   },
-  "main": "bin/redux-cli.js",
+  "main": "bin/redux-generators.js",
   "bin": {
-    "redux-cli": "./bin/redux-cli.js"
+    "redux-generators": "./bin/redux-generators.js",
+    "rg": "./bin/redux-generators.js"
   },
   "engine": {
     "node": ">=4.0.0"

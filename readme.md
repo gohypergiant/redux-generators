@@ -1,6 +1,8 @@
-# BPXL Redux CLI
+# Redux Generators
 
-A tool for scaffolding redux applications. This tool is opinionated towards the way we like to build our redux applications. We assume you are using the following packages:
+A CLI tool for quickly scaffolding scalable Redux applications. This tool is opinionated towards the way we like to build our Redux applications. Read the [Black Pixel Redux Handbook](http://bpxl-labs.github.io/redux-handbook/) for more information.
+
+We assume you are familiar with and are using the following packages:
 
 - [reselect](https://github.com/reactjs/reselect)
 - [redux-actions](https://github.com/acdlite/redux-actions)
@@ -8,25 +10,23 @@ A tool for scaffolding redux applications. This tool is opinionated towards the 
 
 ### Quickstart
 
-![Redux CLI Usage Gif](http://i.imgur.com/KZ4p4qg.gif)
-
 ```bashgit
-redux-cli make <name>
-redux-cli make:reducer
-redux-cli make:action
-redux-cli make:selector
-redux-cli make:container <name>
+$ rg make <name>
+$ rg make:reducer
+$ rg make:action
+$ rg make:selector
+$ rg make:container <name>
 ```
 
 ### Available Commands
 
 |Command|Description|
 |---|---|
-|`redux-cli make <name>`|Creates a new folder using `<name>` that houses three files: `reducer.js`, `actions.js`, and `selectors.js` that are created based on passed in options and template files.
-|`redux-cli make:reducer`|Creates a reducer based on passed in options and template files.|
-|`redux-cli make:action`|Creates actions based on passed in options and template files.|
-|`redux-cli make:selector`|Creates selectors based on passed in options and template files.|
-|`redux-cli make:container <name>`|Creates a container component named `<name>` based on passed in options and template files.|
+|`$ rg make <name>`|Creates a new folder using `<name>` that houses three files: `reducer.js`, `actions.js`, and `selectors.js` that are created based on passed in options and template files.
+|`$ rg make:reducer`|Creates a reducer based on passed in options and template files.|
+|`$ rg make:action`|Creates actions based on passed in options and template files.|
+|`$ rg make:selector`|Creates selectors based on passed in options and template files.|
+|`$ rg make:container <name>`|Creates a container component named `<name>` based on passed in options and template files.|
 
 ### Global Options
 
@@ -35,7 +35,7 @@ redux-cli make:container <name>
 |`-r, --root [path]`|The root path for the CLI, defaults to current working directory|
 |`-p, --path [path]`|The path based on root to insert the files, defaults to `./`|
 
-You can also add a `.reduxclirc` file to your project root to set config values used in `redux-cli`. Here is an example `.reduxclirc` file with all available options:
+You can also add a `.rgrc` file to your project root to set config values used in `redux-generators`. Here is an example `.rgrc` file with all available options:
 
 ```json
 {
@@ -57,7 +57,7 @@ You can also add a `.reduxclirc` file to your project root to set config values 
 
 ### Custom templates
 
-By default `redux-cli` will generate files for you with some great conventions and standards in mind. However, if you would like to have a set of your own templates, you can do so by creating a folder in your root directory to house your custom templates. This folder path will need to be set inside of a `.reduxclirc` file and all four template files will need to be present. All template files are rendered using [lodash's `template`](https://lodash.com/docs#template) method.
+By default `redux-generators` will generate files for you with some great conventions and standards in mind. However, if you would like to have a set of your own templates, you can do so by creating a folder in your root directory to house your custom templates. This folder path will need to be set inside of a `.rgrc` file and all four template files will need to be present. All template files are rendered using [lodash's `template`](https://lodash.com/docs#template) method.
 
 `reducerTemplate` gets passed the following data:
 
@@ -86,7 +86,7 @@ By default `redux-cli` will generate files for you with some great conventions a
 |name|String|The exported name of the container component.|
 |selector|String|A selector to be passed as the first argument to the `connect` method.|
 
-### `redux-cli make <name> [options]`
+### `$ rg make <name> [options]`
 
 Creates a new folder using `<name>` that houses three files:
 - `reducer.js`
@@ -130,7 +130,7 @@ export default combineReducers({
 });
 ```
 
-### `redux-cli make:reducer [options]`
+### `$ rg make:reducer [options]`
 
 **Options**
 
@@ -141,7 +141,7 @@ export default combineReducers({
 |`--actions`|A comma separated list of initial action types to add into your reducer file|
 
 
-### `redux-cli make:action [options]`
+### `$ rg make:action [options]`
 
 **Options**
 
@@ -165,7 +165,7 @@ export const barAction = createAction(BAR_ACTION);
 export const bazAction = createAction(BAZ_ACTION);
 ```
 
-### `redux-cli make:selector [options]`
+### `$ rg make:selector [options]`
 
 **Options**
 
@@ -183,7 +183,7 @@ export const barSelector = createSelector();
 export const bazSelector = createSelector();
 ```
 
-### `redux-cli make:container <name>`
+### `$ rg make:container <name>`
 
 Creates a container component exported with the passed in `<name>`. The file name is derived from kebab and lowercasing the `<name>`.
 
