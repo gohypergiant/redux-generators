@@ -11,6 +11,10 @@ We assume you are familiar with and are using the following packages:
 ### Quickstart
 
 ```bashgit
+$ npm i redux-generators -g
+```
+
+```bashgit
 $ rg make <name>
 $ rg make:reducer
 $ rg make:action
