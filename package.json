@@ -45,6 +45,11 @@
   "devDependencies": {
     "eslint": "^2.10.2",
     "eslint-config-airbnb-base": "^3.0.1",
-    "eslint-plugin-import": "^1.8.0"
+    "eslint-plugin-import": "^1.8.0",
+    "publish-please": "^2.1.4"
+  },
+  "scripts": {
+    "publish-please": "publish-please",
+    "prepublish": "publish-please guard"
   }
 }
