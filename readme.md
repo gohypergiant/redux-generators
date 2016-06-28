@@ -22,11 +22,11 @@ $ rg make:container <name>
 
 |Command|Description|
 |---|---|
-|`$ rg make <name>`|Creates a new folder using `<name>` that houses three files: `reducer.js`, `actions.js`, and `selectors.js` that are created based on passed in options and template files.
-|`$ rg make:reducer`|Creates a reducer based on passed in options and template files.|
-|`$ rg make:action`|Creates actions based on passed in options and template files.|
-|`$ rg make:selector`|Creates selectors based on passed in options and template files.|
-|`$ rg make:container <name>`|Creates a container component named `<name>` based on passed in options and template files.|
+|`rg make <name>`|Creates a new folder using `<name>` that houses three files: `reducer.js`, `actions.js`, and `selectors.js` that are created based on passed in options and template files.
+|`rg make:reducer`|Creates a reducer based on passed in options and template files.|
+|`rg make:action`|Creates actions based on passed in options and template files.|
+|`rg make:selector`|Creates selectors based on passed in options and template files.|
+|`rg make:container <name>`|Creates a container component named `<name>` based on passed in options and template files.|
 
 ### Global Options
 

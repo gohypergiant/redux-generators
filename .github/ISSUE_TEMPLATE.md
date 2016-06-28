@@ -1,7 +1,7 @@
 ## Context
 
 * *Node version*:
-* *Redux-cli version*:
+* *Redux-generators version*:
 * *Operating System and version*:
 
 ## What are you trying to achieve or the steps to reproduce?
