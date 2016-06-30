@@ -4,7 +4,7 @@ Say you have a Redux application that looks something like this:
 
 ![File Structure 1](http://bpxl-labs.github.io/redux-handbook/sections/images/folder-layout-bad.png)
 
-Redux Generators gives you the ability to create both individual files and entire folders with a single command. The layout and content of these generated files were designed with scalability in mind:
+Redux Generators gives you the ability to create both individual files and entire folders with a single command. The layout and content of these generated files are designed with scalability in mind:
 
 ![File Structure 2](http://bpxl-labs.github.io/redux-handbook/sections/images/folder-layout-good.png)
 
@@ -26,7 +26,7 @@ We assume you are familiar with and are using the following packages:
 
 |Command|Description|
 |---|---|
-|`rg make <name>`|Creates a new folder using `<name>` that houses three files: `reducer.js`, `actions.js`, and `selectors.js` that are created based on passed in options and template files.
+|`rg make <name>`|Creates a new folder using `<name>` that houses three files: `reducer.js`, `actions.js`, and `selectors.js`|
 |`rg make:reducer`|Creates a reducer based on passed in options and template files.|
 |`rg make:action`|Creates actions based on passed in options and template files.|
 |`rg make:selector`|Creates selectors based on passed in options and template files.|
