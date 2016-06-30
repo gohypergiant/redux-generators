@@ -26,11 +26,11 @@ We assume you are familiar with and are using the following packages:
 
 |Command|Description| |
 |---|---|---|
-|`rg make <name>`|Creates a new folder contains a reducer, actions, and selectors|[See Options & Usage](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-make-name-options)|
-|`rg make:reducer [options]`|Creates a reducer.|[See Options & Usage](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-makereducer-options)|
-|`rg make:action [options]`|Creates actions.|[See Options & Usage](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-makeaction-options)|
-|`rg make:selector [options]`|Creates selectors.|[See Options & Usage](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-makeselector-options)|
-|`rg make:container <name> [options]`|Creates a container component|[See Options & Usage](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-makecontainer-name)|
+|`rg make <name>`|Creates a reducer, actions, and selectors|[Options & Usage](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-make-name-options)|
+|`rg make:reducer [options]`|Creates a reducer.|[Options & Usage](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-makereducer-options)|
+|`rg make:action [options]`|Creates actions.|[Options & Usage](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-makeaction-options)|
+|`rg make:selector [options]`|Creates selectors.|[Options & Usage](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-makeselector-options)|
+|`rg make:container <name> [options]`|Creates a container component|[Options & Usage](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-makecontainer-name)|
 
 ### Global Options
 
