@@ -1,26 +1,26 @@
 # Redux Generators
 
-A CLI tool for quickly scaffolding scalable Redux applications. This tool is opinionated towards the way we like to build our Redux applications. Read the [Black Pixel Redux Handbook](http://bpxl-labs.github.io/redux-handbook/) for more information.
+Say you have a Redux application that looks something like this:
+
+![File Structure 1](http://bpxl-labs.github.io/redux-handbook/sections/images/folder-layout-bad.png)
+
+And you want to introduce a more scalable architecture or are just looking to do some minor refactoring. Redux Generators gives you the ability to create both individual files and entire folders with a single command:
+
+![File Structure 2](http://bpxl-labs.github.io/redux-handbook/sections/images/folder-layout-good.png)
+
+If you are just starting out on a project or are simply looking to improve your current structure, this tool is for you. Redux Generators is opinionated towards the way Black Pixel likes to build our Redux applications. Read the [Black Pixel Redux Handbook](http://bpxl-labs.github.io/redux-handbook/) for more information.
+
+### Quickstart
+
+1. `$ npm i redux-generators -g`
+2. `$ npm i redux-actions react-redux reselect --save`
+3. `$ rg make example --reducers=one,two,three --actions=oneAction,twoAction,threeAction`
 
 We assume you are familiar with and are using the following packages:
 
 - [reselect](https://github.com/reactjs/reselect)
 - [redux-actions](https://github.com/acdlite/redux-actions)
 - [react-redux](https://github.com/reactjs/react-redux)
-
-### Quickstart
-
-```bashgit
-$ npm i redux-generators -g
-```
-
-```bashgit
-$ rg make <name>
-$ rg make:reducer
-$ rg make:action
-$ rg make:selector
-$ rg make:container <name>
-```
 
 ### Available Commands
 
