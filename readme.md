@@ -24,13 +24,13 @@ We assume you are familiar with and are using the following packages:
 
 ### Available Commands
 
-|Command|Description|
+|Command|Description|Options|
 |---|---|
-|`rg make <name>`|Creates a new folder using `<name>` that houses three files: `reducer.js`, `actions.js`, and `selectors.js`|
-|`rg make:reducer`|Creates a reducer based on passed in options and template files.|
-|`rg make:action`|Creates actions based on passed in options and template files.|
-|`rg make:selector`|Creates selectors based on passed in options and template files.|
-|`rg make:container <name>`|Creates a container component named `<name>` based on passed in options and template files.|
+|`rg make <name>`|Creates a new folder using `<name>` that contains a reducer, actions, and selectors|[See Options](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-make-name-options)|
+|`rg make:reducer [options]`|Creates a reducer.|[See Options](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-makereducer-options)|
+|`rg make:action [options]`|Creates actions.|[See Options](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-makeaction-options)|
+|`rg make:selector [options]`|Creates selectors.|[See Options](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-makeselector-options)|
+|`rg make:container <name> [options]`|Creates a container component|[See Options](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-makecontainer-name)|
 
 ### Global Options
 
