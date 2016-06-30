@@ -4,7 +4,7 @@ Say you have a Redux application that looks something like this:
 
 ![File Structure 1](http://bpxl-labs.github.io/redux-handbook/sections/images/folder-layout-bad.png)
 
-And you want to introduce a more scalable architecture or are just looking to do some minor refactoring. Redux Generators gives you the ability to create both individual files and entire folders with a single command:
+Redux Generators gives you the ability to create both individual files and entire folders with a single command. The layout and content of these generated files were designed with scalability in mind:
 
 ![File Structure 2](http://bpxl-labs.github.io/redux-handbook/sections/images/folder-layout-good.png)
 
