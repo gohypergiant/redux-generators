@@ -213,3 +213,9 @@ export default FooContainer;
 ```
 
 For more on how we structure Redux apps at Black Pixel, check out our [Redux Handbook](http://bpxl-labs.github.io/redux-handbook/).
+
+---
+
+Website: [blackpixel.com](https://blackpixel.com) &nbsp;&middot;&nbsp;
+GitHub: [@bpxl-labs](https://github.com/bpxl-labs/) &nbsp;&middot;&nbsp;
+Twitter: [@blackpixel](https://twitter.com/blackpixel)
