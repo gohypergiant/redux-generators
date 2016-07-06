@@ -1,26 +1,25 @@
 # Redux Generators
 
-Say you have a Redux application that looks something like this:
+Redux Generators is a lightweight, opinionated CLI that helps scaffold a scalable approach to Redux.
 
-![File Structure 1](http://bpxl-labs.github.io/redux-handbook/sections/images/folder-layout-bad.png)
+Many Redux applications maintain separate directories for actions, reducers, and selectors. While this may work for small apps, maintaining files in three different directories for every new feature becomes tedious as an application grows. Utilizing a single directory per feature is a [more scalable approach](http://bpxl-labs.github.io/redux-handbook/sections/folder-file-structure.html), and allows a Redux directory structure to model the application's state tree.
 
-Redux Generators gives you the ability to create both individual files and entire folders with a single command. The layout and content of these generated files are designed with scalability in mind:
+If you've struggled with structuring or scaling Redux applications, or are just looking for some convenience tooling to get more work done faster, Redux Generators is for you.
 
-![File Structure 2](http://bpxl-labs.github.io/redux-handbook/sections/images/folder-layout-good.png)
+### Prerequisites
+Redux Generators requires the following utilities:
+- [reselect](https://github.com/reactjs/reselect) selector library for Redux
+- [redux-actions](https://github.com/acdlite/redux-actions) Flux Standard Action utilities for Redux
+- [react-redux](https://github.com/reactjs/react-redux) Official React bindings for Redux
 
-If you are just starting out on a project or are simply looking to improve your current structure, this tool is for you. Redux Generators is opinionated towards the way Black Pixel likes to build our Redux applications. Read the [Black Pixel Redux Handbook](http://bpxl-labs.github.io/redux-handbook/) for more information.
+If you aren't using them already, install and add to your project's dependencies with:
 
-### Quickstart
+`$ npm i reselect redux-actions react-redux --save`
+
+### Sample usage
 
 1. `$ npm i redux-generators -g`
-2. `$ npm i redux-actions react-redux reselect --save`
-3. `$ rg make example --reducers=one,two,three --actions=oneAction,twoAction,threeAction`
-
-We assume you are familiar with and are using the following packages:
-
-- [reselect](https://github.com/reactjs/reselect)
-- [redux-actions](https://github.com/acdlite/redux-actions)
-- [react-redux](https://github.com/reactjs/react-redux)
+2. `$ rg make example --reducers=one,two,three --actions=oneAction,twoAction,threeAction`
 
 ### Available Commands
 
@@ -212,3 +211,5 @@ const FooContainer = connect(
 
 export default FooContainer;
 ```
+
+For more on how we structure Redux apps at Black Pixel, check out our [Redux Handbook](http://bpxl-labs.github.io/redux-handbook/).
