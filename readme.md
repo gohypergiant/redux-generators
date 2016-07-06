@@ -1,36 +1,35 @@
 # Redux Generators
 
-A CLI tool for quickly scaffolding scalable Redux applications. This tool is opinionated towards the way we like to build our Redux applications. Read the [Black Pixel Redux Handbook](http://bpxl-labs.github.io/redux-handbook/) for more information.
+Redux Generators is a lightweight, opinionated CLI that helps scaffold a scalable approach to Redux.
 
-We assume you are familiar with and are using the following packages:
+Many Redux applications maintain separate directories for actions, reducers, and selectors. While this may work for small apps, maintaining files in three different directories for every new feature becomes tedious as an application grows. Utilizing a single directory per feature is a [more scalable approach](http://bpxl-labs.github.io/redux-handbook/sections/folder-file-structure.html), and allows a Redux directory structure to model the application's state tree.
 
-- [reselect](https://github.com/reactjs/reselect)
-- [redux-actions](https://github.com/acdlite/redux-actions)
-- [react-redux](https://github.com/reactjs/react-redux)
+If you've struggled with structuring or scaling Redux applications, or are just looking for some convenience tooling to get more work done faster, Redux Generators is for you.
 
-### Quickstart
+### Prerequisites
+Redux Generators requires the following utilities:
+- [reselect](https://github.com/reactjs/reselect) selector library for Redux
+- [redux-actions](https://github.com/acdlite/redux-actions) Flux Standard Action utilities for Redux
+- [react-redux](https://github.com/reactjs/react-redux) Official React bindings for Redux
 
-```bashgit
-$ npm i redux-generators -g
-```
+If you aren't using them already, install and add to your project's dependencies with:
 
-```bashgit
-$ rg make <name>
-$ rg make:reducer
-$ rg make:action
-$ rg make:selector
-$ rg make:container <name>
-```
+`$ npm i reselect redux-actions react-redux --save`
+
+### Sample usage
+
+1. `$ npm i redux-generators -g`
+2. `$ rg make example --reducers=one,two,three --actions=oneAction,twoAction,threeAction`
 
 ### Available Commands
 
-|Command|Description|
-|---|---|
-|`rg make <name>`|Creates a new folder using `<name>` that houses three files: `reducer.js`, `actions.js`, and `selectors.js` that are created based on passed in options and template files.
-|`rg make:reducer`|Creates a reducer based on passed in options and template files.|
-|`rg make:action`|Creates actions based on passed in options and template files.|
-|`rg make:selector`|Creates selectors based on passed in options and template files.|
-|`rg make:container <name>`|Creates a container component named `<name>` based on passed in options and template files.|
+|Command|Description| |
+|---|---|---|
+|`rg make <name>`|Creates a reducer, actions, and selectors|[Options & Usage](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-make-name-options)|
+|`rg make:reducer [options]`|Creates a reducer.|[Options & Usage](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-makereducer-options)|
+|`rg make:action [options]`|Creates actions.|[Options & Usage](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-makeaction-options)|
+|`rg make:selector [options]`|Creates selectors.|[Options & Usage](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-makeselector-options)|
+|`rg make:container <name> [options]`|Creates a container component|[Options & Usage](https://github.com/bpxl-labs/redux-generators/tree/feature/readme-overhaul#-rg-makecontainer-name)|
 
 ### Global Options
 
@@ -212,3 +211,11 @@ const FooContainer = connect(
 
 export default FooContainer;
 ```
+
+For more on how we structure Redux apps at Black Pixel, check out our [Redux Handbook](http://bpxl-labs.github.io/redux-handbook/).
+
+---
+
+Website: [blackpixel.com](https://blackpixel.com) &nbsp;&middot;&nbsp;
+GitHub: [@bpxl-labs](https://github.com/bpxl-labs/) &nbsp;&middot;&nbsp;
+Twitter: [@blackpixel](https://twitter.com/blackpixel)
