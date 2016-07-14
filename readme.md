@@ -2,6 +2,8 @@
 
 Redux Generators is a lightweight, opinionated CLI that helps scaffold a scalable approach to Redux.
 
+[![asciicast](https://asciinema.org/a/3lmu23d97jl47vcunwepneg5u.png)](https://asciinema.org/a/3lmu23d97jl47vcunwepneg5u)
+
 Many Redux applications maintain separate directories for actions, reducers, and selectors. While this may work for small apps, maintaining files in three different directories for every new feature becomes tedious as an application grows. Utilizing a single directory per feature is a [more scalable approach](http://bpxl-labs.github.io/redux-handbook/sections/folder-file-structure.html), and allows a Redux directory structure to model the application's state tree.
 
 If you've struggled with structuring or scaling Redux applications, or are just looking for some convenience tooling to get more work done faster, Redux Generators is for you.
