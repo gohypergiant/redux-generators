@@ -1,8 +1,8 @@
 # Redux Generators
 
-[![npm](https://img.shields.io/npm/v/redux-generators.svg)]()
-[![license](https://img.shields.io/github/license/bpxl-labs/redux-generators.svg)]()
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md#pull-requests)
+[![npm](https://img.shields.io/npm/v/redux-generators.svg)](https://www.npmjs.com/package/redux-generators)
+[![license](https://img.shields.io/github/license/bpxl-labs/redux-generators.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](.github/CONTRIBUTING.md)
 [![Maintenance](https://img.shields.io/maintenance/yes/2016.svg)]()
 
 Redux Generators is a lightweight, opinionated CLI that helps scaffold a scalable approach to Redux.
